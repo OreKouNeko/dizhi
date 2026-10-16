@@ -1,0 +1,16 @@
+# 统一换行符，避免 Windows 与 Linux/macOS 贡献者互相产生整文件 diff
+* text=auto eol=lf
+
+# 二进制文件不做换行转换
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.zip binary
+*.pbf binary
+*.parquet binary
+*.duckdb binary
+
+# 语言统计：把 *.md 当成文档而不是代码
+*.md linguist-documentation

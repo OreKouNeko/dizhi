@@ -1,0 +1,62 @@
+# ---------------------------------------------------------------- 密钥与本地配置
+# 绝不要提交真实密钥
+.env
+.env.local
+*.key
+
+# ---------------------------------------------------------------- 数据（体积大、可重新生成）
+*.osm.pbf
+*.osm.bz2
+*.pbf
+*.duckdb
+*.duckdb.wal
+data/
+parquet/
+parquet_geo/
+*.parquet
+*.state.json
+
+# ---------------------------------------------------------------- 本地产物
+report.txt
+report.geojson
+*.geojson
+build/
+out/
+output/
+
+# ---------------------------------------------------------------- Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+.python-version
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# ---------------------------------------------------------------- 本地依赖（用 tools/fetch_deps.py 重建）
+libs/
+libs2/
+wheelhouse/
+site-packages/
+
+# ---------------------------------------------------------------- 临时文件
+.tmp/
+.tmp
+tmp/
+tmpx/
+*.log
+
+# ---------------------------------------------------------------- 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 打包产物
+*.zip

@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dizhi"
+version = "0.2.0"
+description = "用一句中文描述缩小地图地点范围：把自然语言变成可验证的地理约束，在 OSM 数据上逐层筛选候选"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+keywords = ["openstreetmap", "gis", "geospatial", "poi", "nlp", "duckdb", "cli"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: GIS",
+]
+
+# 核心依赖：解析 + 空间计算 + CLI
+dependencies = [
+    "typer>=0.9",
+    "rich>=13",
+    "duckdb>=1.1",
+    "shapely>=2.0",
+    "pyproj>=3.6",
+    "numpy>=1.24",
+    "pyarrow>=14",
+]
+
+[project.optional-dependencies]
+# 建库（把 .osm.pbf 变成可检索数据）
+ingest = ["osmium>=3.6"]
+# 出地图
+map = ["folium>=0.15"]
+# 全部
+all = ["osmium>=3.6", "folium>=0.15"]
+
+[project.scripts]
+dizhi = "dizhi.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
